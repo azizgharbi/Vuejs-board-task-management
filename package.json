@@ -9,14 +9,15 @@
   "author": "gharbi mohamed aziz",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.4.0",
-    "vue": "^2.4.4",
     "axios": "^0.17.0",
+    "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.6",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "vue": "^2.4.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
