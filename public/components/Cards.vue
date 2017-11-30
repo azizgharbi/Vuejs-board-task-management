@@ -8,7 +8,7 @@
                </p>
                <div class="tags has-addons">
                   <span class="tag">Status:</span>
-                  <span class="tag is-primary">{{card.status}}</span>
+                  <span class="tag is-info">{{card.status}}</span>
               </div>
             </header>
             <div class="card-content">

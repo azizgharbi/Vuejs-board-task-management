@@ -11528,7 +11528,7 @@ var render = function() {
             _c("div", { staticClass: "tags has-addons" }, [
               _c("span", { staticClass: "tag" }, [_vm._v("Status:")]),
               _vm._v(" "),
-              _c("span", { staticClass: "tag is-primary" }, [
+              _c("span", { staticClass: "tag is-info" }, [
                 _vm._v(_vm._s(card.status))
               ])
             ])
