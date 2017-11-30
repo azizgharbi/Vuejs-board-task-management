@@ -7,7 +7,7 @@
            },
            {
                'title' : 'Morbi hendrerit magna felis',
-               'status' : 'todo',
+               'status' : 'To do',
                'description': "Lorem ipsum dolor sit amet, volutpat molestie felis. Morbi hendrerit magna felis, sed pellentesque lorem tincidunt ut"
            }
        ]
@@ -16,7 +16,7 @@
    const mutations = {};
    const actions = {};
 
-   
+
    //export methode
   export default {
     state,
