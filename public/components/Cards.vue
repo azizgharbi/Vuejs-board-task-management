@@ -39,11 +39,11 @@ export default {
   },
   computed: {
     show() {
-      return cards.state.CardsExample;
+      return cards.state.cardsModule.CardsExample;
     }
   },
   created() {
-    this.cards = cards.state.CardsExample;
+    this.cards = cards.state.cardsModule.CardsExample;
   }
 };
 </script>
