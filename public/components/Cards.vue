@@ -9,7 +9,7 @@
                <div class="tags has-addons">
                   <span class="tag">Status:</span>
                   <span class="tag is-info">{{card.status}}</span>
-              </div>
+               </div>
             </header>
             <div class="card-content">
                <div class="content">
@@ -26,25 +26,34 @@
    </div>
 </template>
 <script>
-   import { cards } from "../cards/cards";
-   
+   import { store } from "../store/store";
+   import axios from 'axios';
+    
    export default {
      name: "Cards",
-     data() {
-       return {
-         cards: []
-       };
-     },
      computed: {
-       
+       cards(){
+         return store.state.cards;
+       }
      },
+   
      created() {
-       this.cards = cards.state.cardsModule.CardsExample;
+       
+      axios.get('/api/cards')
+        .then( cards => {
+          store.commit('setCards',cards.data)
+        })
+        .catch(function (error) {
+            console.log(error);
+            let emptyArray = [];
+           store.commit('setCards',emptyArray)
+        });
      }
+   
    };
 </script>
 <style>
-.place{
-  margin-left:10px;
-}
+   .place{
+   margin-left:10px;
+   }
 </style>

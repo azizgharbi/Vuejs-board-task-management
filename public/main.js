@@ -6,5 +6,4 @@ new Vue({
   components: { 
     cards
   }
-  
 })
