@@ -26,19 +26,18 @@
    </div>
 </template>
 <script>
-   import { store } from "../store/store";
     
    export default {
      name: "Cards",
      computed: {
        cards(){
-         return store.state.cards;
+         return this.$store.state.cards;
        }
      },
    
      created() {
        // dispatch like commit but we used for actions
-       store.dispatch('fetchCard'); 
+       this.$store.dispatch('fetchCard'); 
      }
    
    };

@@ -11505,48 +11505,48 @@ return Vue$3;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var _store = __webpack_require__(21);
 
 exports.default = {
   name: "Cards",
   computed: {
     cards: function cards() {
-      return _store.store.state.cards;
+      return this.$store.state.cards;
     }
   },
 
   created: function created() {
     // dispatch like commit but we used for actions
-    _store.store.dispatch('fetchCard');
+    this.$store.dispatch('fetchCard');
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 6 */
@@ -11832,10 +11832,13 @@ var _Cards = __webpack_require__(14);
 
 var _Cards2 = _interopRequireDefault(_Cards);
 
+var _store = __webpack_require__(21);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 new _vue2.default({
   el: '#app',
+  store: _store.store,
   components: {
     cards: _Cards2.default
   }
