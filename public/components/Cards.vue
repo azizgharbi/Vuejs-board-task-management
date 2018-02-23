@@ -27,7 +27,6 @@
 </template>
 <script>
    import { store } from "../store/store";
-   import axios from 'axios';
     
    export default {
      name: "Cards",
@@ -38,16 +37,8 @@
      },
    
      created() {
-       
-      axios.get('/api/cards')
-        .then( cards => {
-          store.commit('setCards',cards.data)
-        })
-        .catch(function (error) {
-            console.log(error);
-            let emptyArray = [];
-           store.commit('setCards',emptyArray)
-        });
+       // dispatch like commit but we used for actions
+       store.dispatch('fetchCard'); 
      }
    
    };
