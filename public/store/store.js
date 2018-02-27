@@ -12,7 +12,7 @@ Vue.use(Vuex);
       },
       mutations: { // like methode
 
-       setCards (state,cards) {
+        setCards (state,cards) {
             state.cards = cards
         }
       } , 
