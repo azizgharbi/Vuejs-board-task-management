@@ -17,6 +17,7 @@
     "method-override": "^2.3.6",
     "path": "^0.12.7",
     "vue": "^2.4.4",
+    "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

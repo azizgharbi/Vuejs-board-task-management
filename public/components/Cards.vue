@@ -19,7 +19,7 @@
             <footer class="card-footer" style="padding:10px;">
                <button class="button is-primary place" @click="changeStatus(card,'Done')">Done</button>
                <button class="button is-warning place" @click="changeStatus(card,'in progress')">in progress</button>
-               <button class="button is-danger place" @click="changeStatus(card,'To do')">To do</button>
+               <button class="button is-danger place"  @click="changeStatus(card,'To do')">To do</button>
             </footer>
          </div>
       </div>
