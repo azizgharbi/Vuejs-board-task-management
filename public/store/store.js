@@ -21,7 +21,7 @@ Vue.use(Vuex);
       }, 
       actions:{ // make call from api
 
-        fetchCard(context){
+        fetchCard(){
           axios.get('/api/cards')
           .then( cards => {
             store.commit('setCards',cards.data)

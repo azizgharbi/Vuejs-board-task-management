@@ -28,6 +28,7 @@
    </div>
       <div class="row">
        <a class="button is-primary">Create</a>
+       <a class="button is-warning">Clear</a>
       </div>
    </div>
 </template>
