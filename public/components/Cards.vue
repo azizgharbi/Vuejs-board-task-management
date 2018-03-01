@@ -41,7 +41,7 @@
      },
    
      created() {
-       // dispatch like commit but we used for actions
+       // dispatch like commit but for actions
        this.$store.dispatch('fetchCard'); 
      }
    

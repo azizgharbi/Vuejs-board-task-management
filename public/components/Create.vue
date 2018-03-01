@@ -1,29 +1,35 @@
 <template>
-<div>
-
-   <div class="field">
-      <label class="label">Title</label>
-      <div class="control">
-         <input class="input" type="text" placeholder="Example : RSP-452">
+   <div>
+      <div class="field">
+         <label class="label">Title</label>
+         <div class="control">
+            <input class="input" type="text" placeholder="Example : RSP-452">
+         </div>
       </div>
-   </div>
-
-   <textarea 
-        class="textarea" 
-        placeholder="Explain do you want clearly">
+      <textarea 
+         class="textarea" 
+         placeholder="Explain what do you want clearly">
    </textarea>
-
-   <div class="control">
-      <div class="select">
-         <select>
-            <option>In progress</option>
-            <option>To do</option>
-            <option>Done</option>
-         </select>
+   <div class="row">
+      <div class="control">
+         <label class="radio">
+         <input type="radio" name= "status" checked>
+         To do
+         </label>
+         <label class="radio">
+         <input type="radio" name= "status">
+         In progress
+         </label>
+         <label class="radio">
+         <input type="radio" name= "status">
+         Done
+         </label>
       </div>
    </div>
-   
-</div>
+      <div class="row">
+       <a class="button is-primary">Create</a>
+      </div>
+   </div>
 </template>
 <script>
    export default {
@@ -41,3 +47,8 @@
    
    };
 </script>
+<style>
+.row{
+  margin-top: 30px;
+}
+</style>

@@ -13,10 +13,11 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes 
 })
 
-new Vue({
+let app = new Vue({
   el: '#app',
   store : store,
   router
