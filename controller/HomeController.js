@@ -26,7 +26,8 @@ module.exports = {
                 fields: ['title', 'description','status'] 
             }
         ).then(card => {
-            console.log('card saved !');
+            res.json({status : 'ok','data': cards});
+                console.log('card saved !');
         });
     }
 
