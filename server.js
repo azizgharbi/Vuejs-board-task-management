@@ -1,11 +1,12 @@
 var path = require('path');
-var express= require('express')
+var express= require('express');
 app=express();
 
 // packge imported
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var exphbs  = require('express-handlebars');
+var database = require('./database/databse_config');
 
 
 //============================================
@@ -20,6 +21,14 @@ app.use(methodOverride('_method'))
 // set engine handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'default'}));
 app.set('view engine', 'handlebars');
+//database connection
+database.sequelize.authenticate()
+.then(() => {
+  console.log('Connection has been established successfully.');
+})
+.catch(err => {
+  console.error('Unable to connect to the database:', err);
+});
 // require Routes
 require("./routing/routes");
 

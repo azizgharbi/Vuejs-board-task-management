@@ -37,5 +37,9 @@
     "vue-template-compiler": "^2.5.2",
     "vuex": "^3.0.1",
     "webpack": "^4.0.1"
+  },
+  "dependencies": {
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.35.2"
   }
 }
