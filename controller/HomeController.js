@@ -14,6 +14,20 @@ module.exports = {
           }).then(cards =>{
             res.json(cards);
           }); 
+    },
+    CreateCard:function(req,res){
+        CardModel.Card.create(
+            { 
+                title: req.body.title,
+                description: req.body.description,
+                status : req.body.status
+            }, 
+            { 
+                fields: ['title', 'description','status'] 
+            }
+        ).then(card => {
+            console.log('card saved !');
+        });
     }
 
 };
