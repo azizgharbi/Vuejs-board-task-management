@@ -16,8 +16,9 @@ var database = require('./database/databse_config');
 // assets in the public folder
 app.use('/static', express.static('public'));
 //body-parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(methodOverride('_method'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 // set engine handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'default'}));
 app.set('view engine', 'handlebars');

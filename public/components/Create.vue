@@ -41,7 +41,6 @@
           status: '',
           description:''
        }
-      
     },
      methods:{
        AddToBoardComponent(){
@@ -50,15 +49,9 @@
             "status" : this.status,
             "description" : this.description
           }
-           this.$store.dispatch('AddToBoardAction',card);
+          this.$store.commit('AddCardTodatabase',card);
        }
-         
-     },
-   
-     created() {
-       
      }
-   
    };
 </script>
 <style>

@@ -36,7 +36,8 @@
     "vue-switches": "^2.0.1",
     "vue-template-compiler": "^2.5.2",
     "vuex": "^3.0.1",
-    "webpack": "^4.0.1"
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10"
   },
   "dependencies": {
     "mysql2": "^1.5.2",

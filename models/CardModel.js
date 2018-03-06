@@ -10,6 +10,9 @@ const Card = database.sequelize.define('Card', {
     status: {
         type: database.Sequelize.STRING
     }
+  },
+  {
+    timestamps: false
   });
 
   exports.Card = Card ;

@@ -15,9 +15,12 @@ Vue.use(Vuex);
         setCards (state,cards) {
             state.cards = cards
         },
-        AddToBoard(state,card){
-          state.cards.push(card);
+        AddCardTodatabase(state,card){
+          axios.post('/api/save/cards', {
+            data: card
+          }).then(response => {console.log(response.data);});
         }
+
       } , 
       getters: { // like computed methode
 
@@ -29,12 +32,8 @@ Vue.use(Vuex);
           .then( cards => {
             store.commit('setCards',cards.data)
           }).catch( error =>{console.log(error);});
-        },
-
-        AddToBoardAction(context , card) {
-          context.commit("AddToBoard",card);
         }
-
+        
       }
      
 })

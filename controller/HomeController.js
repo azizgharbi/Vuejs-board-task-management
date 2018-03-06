@@ -16,19 +16,23 @@ module.exports = {
           }); 
     },
     CreateCard:function(req,res){
+
         CardModel.Card.create(
             { 
-                title: req.body.title,
-                description: req.body.description,
-                status : req.body.status
+                title: req.body.data.title,
+                description: req.body.data.description,
+                status : req.body.data.status
             }, 
             { 
                 fields: ['title', 'description','status'] 
             }
         ).then(card => {
-            res.json({status : 'ok','data': cards});
-                console.log('card saved !');
+            res.json(
+                {   "status" : "success",
+                    "zabouromek" : "omek el 9a7ba"
+                });
         });
+        
     }
 
 };
