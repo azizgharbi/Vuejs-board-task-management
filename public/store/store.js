@@ -23,6 +23,11 @@ Vue.use(Vuex);
         DeleteCardTodatabase(state,card){
           state.cards .splice(state.cards .indexOf(card), 1);
           axios.delete('/api/delete/card/' + card.id).then(response => {console.log(response.data);});
+        },
+        UpdateCardTodatabase(state,card){
+          axios.put('/api/update/card/' + card.id , {
+            data: card
+          }).then(response => {console.log(response.data);});
         }
       } , 
       getters: { // like computed methode

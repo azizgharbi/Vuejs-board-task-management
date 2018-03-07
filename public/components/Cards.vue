@@ -38,6 +38,7 @@
      methods:{
           changeStatus(card,status){
             card.status = status;
+            this.$store.commit('UpdateCardTodatabase',card);
           },
           deleteCard(card){
             this.$store.commit('DeleteCardTodatabase',card);

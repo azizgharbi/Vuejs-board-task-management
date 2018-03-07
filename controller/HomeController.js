@@ -39,6 +39,18 @@ module.exports = {
           }).then(card => {
             res.json({"status" : "success"});
         });
-    }
+    },
+    UpdateCard:function(req,res){
+        
+        CardModel.Card.update({
+            status: req.body.data.status,
+          }, {
+            where: {
+              id: req.params.id
+            }
+          }).then(card => {
+            res.json({"status" : "success"});
+          });
+     }
 
 };
