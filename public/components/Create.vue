@@ -54,7 +54,6 @@
        Clear(){
          this.title ="";
          this.description = "";
-         this.status = "";
        }
      }
    };
