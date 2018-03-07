@@ -13,7 +13,7 @@
    <div class="row">
       <div class="control">
          <label class="radio">
-         <input type="radio" name= "status" checked value = "To do" v-model="status">
+         <input type="radio" name= "status" value = "To do" v-model="status">
          To do
          </label>
          <label class="radio">
@@ -38,7 +38,7 @@
      data() {
        return {
           title:'',
-          status: '',
+          status: 'To do',
           description:''
        }
     },
