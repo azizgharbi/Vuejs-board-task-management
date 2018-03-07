@@ -10,7 +10,7 @@ module.exports = {
 
     GetCards:function(req,res){
        CardModel.Card.findAll({
-            attributes: ['title', 'description','status']
+            attributes: ['id','title', 'description','status']
           }).then(cards =>{
             res.json(cards);
           }); 
@@ -27,12 +27,18 @@ module.exports = {
                 fields: ['title', 'description','status'] 
             }
         ).then(card => {
-            res.json(
-                {   "status" : "success",
-                    "zabouromek" : "omek el 9a7ba"
-                });
+            res.json({"status" : "success"});
         });
         
+    },
+    DeleteCard:function(req,res){
+       CardModel.Card.destroy({
+            where: {
+              id: req.params.id
+            }
+          }).then(card => {
+            res.json({"status" : "success"});
+        });
     }
 
 };

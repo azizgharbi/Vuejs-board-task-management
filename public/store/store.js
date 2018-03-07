@@ -16,11 +16,14 @@ Vue.use(Vuex);
             state.cards = cards
         },
         AddCardTodatabase(state,card){
-          axios.post('/api/save/cards', {
+          axios.post('/api/save/card', {
             data: card
           }).then(response => {console.log(response.data);});
+        },
+        DeleteCardTodatabase(state,card){
+          state.cards .splice(state.cards .indexOf(card), 1);
+          axios.delete('/api/delete/card/' + card.id).then(response => {console.log(response.data);});
         }
-
       } , 
       getters: { // like computed methode
 

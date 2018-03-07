@@ -1,7 +1,7 @@
 <template>
-   <div class="columns">
-      <div class="column"  v-for=" card in cards">
-         <div class="card">
+   <div class="columns is-gapless is-multiline is-mobile" >
+      <div class="column cardSpace" v-for=" card in cards">
+         <div class="card" >
             <header class="card-header">
                <p class="card-header-title">
                   {{card.title}}
@@ -9,6 +9,7 @@
                <div class="tags has-addons">
                   <span class="tag">Status:</span>
                   <span class="tag is-info">{{card.status}}</span>
+                  <span class="deleteButton"><a class="delete is-medium" @click="deleteCard(card)"></a></span>
                </div>
             </header>
             <div class="card-content">
@@ -17,9 +18,9 @@
                </div>
             </div>
             <footer class="card-footer" style="padding:10px;">
-               <button class="button is-primary place" @click="changeStatus(card,'Done')">Done</button>
-               <button class="button is-warning place" @click="changeStatus(card,'in progress')">in progress</button>
-               <button class="button is-danger place"  @click="changeStatus(card,'To do')">To do</button>
+               <button class="button is-primary buttonSpace" @click="changeStatus(card,'Done')">Done</button>
+               <button class="button is-warning buttonSpace" @click="changeStatus(card,'in progress')">in progress</button>
+               <button class="button is-danger buttonSpace"  @click="changeStatus(card,'To do')">To do</button>
             </footer>
          </div>
       </div>
@@ -37,6 +38,9 @@
      methods:{
           changeStatus(card,status){
             card.status = status;
+          },
+          deleteCard(card){
+            this.$store.commit('DeleteCardTodatabase',card);
           }
      },
    
@@ -48,7 +52,13 @@
    };
 </script>
 <style>
-   .place{
+   .buttonSpace{
    margin-left:10px;
+   }
+   .cardSpace{
+     margin: 10px !important;
+   }
+   .deleteButton{
+     margin: 10px;
    }
 </style>
