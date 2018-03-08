@@ -15,6 +15,7 @@ module.exports = {
             res.json(cards);
           }); 
     },
+
     CreateCard:function(req,res){
 
         CardModel.Card.create(
@@ -31,6 +32,7 @@ module.exports = {
         });
         
     },
+
     DeleteCard:function(req,res){
        CardModel.Card.destroy({
             where: {
@@ -40,6 +42,7 @@ module.exports = {
             res.json({"status" : "success"});
         });
     },
+    
     UpdateCard:function(req,res){
         
         CardModel.Card.update({
