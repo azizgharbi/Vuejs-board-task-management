@@ -8,7 +8,7 @@ import { store } from "./store/store";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/board', component: cards , props: { limit: 5 } },
+  { path: '/board', component: cards , props: { limit: 5 , offset : 2} },
   { path: '/create', component: form }
 ]
 
