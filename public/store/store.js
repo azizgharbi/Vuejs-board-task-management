@@ -35,10 +35,10 @@ Vue.use(Vuex);
       }, 
       actions:{ // make call from api
 
-        fetchCard(){
-          axios.get('/api/cards')
+        fetchCard(state,limit){
+          axios.get('/api/cards/'+ limit)
           .then( cards => {
-            store.commit('setCards',cards.data)
+            store.commit('setCards',cards.data);
           }).catch( error =>{console.log(error);});
         }
         

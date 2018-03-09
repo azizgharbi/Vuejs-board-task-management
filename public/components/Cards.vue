@@ -33,6 +33,7 @@
     import paginator from "./Paginator";
    export default {
      name: "Cards",
+      props: ['limit'],
      components:{
        paginator
      },
@@ -53,7 +54,7 @@
    
      created() {
        // dispatch like commit but for actions
-       this.$store.dispatch('fetchCard'); 
+       this.$store.dispatch('fetchCard',this.limit); 
      }
    
    };

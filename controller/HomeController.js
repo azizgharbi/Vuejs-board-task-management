@@ -10,10 +10,11 @@ module.exports = {
 
     GetCards:function(req,res){
        CardModel.Card.findAll({
-            attributes: ['id','title', 'description','status']
+            attributes: ['id','title', 'description','status'],
+            limit : parseInt(req.params.limit)
           }).then(cards =>{
             res.json(cards);
-          }); 
+          });
     },
 
     CreateCard:function(req,res){
