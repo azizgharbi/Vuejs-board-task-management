@@ -1,4 +1,5 @@
 <template>
+<div>
    <div class="columns is-gapless is-multiline is-mobile" >
       <div class="column cardSpace" v-for=" card in cards">
          <div class="card" >
@@ -25,11 +26,16 @@
          </div>
       </div>
    </div>
+   <paginator></paginator>
+</div>
 </template>
 <script>
-    
+    import paginator from "./Paginator";
    export default {
      name: "Cards",
+     components:{
+       paginator
+     },
      computed: {
        cards(){
          return this.$store.state.cards;
