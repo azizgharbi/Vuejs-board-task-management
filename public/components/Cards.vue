@@ -54,8 +54,8 @@
    
      created() {
        // dispatch like commit but for actions
-       console.log(this.limit +"       "  + this.offset);
-       this.$store.dispatch('fetchCard',this.limit,this.offset); 
+       var params = {"limit" : this.limit,"offset" : this.offset}
+       this.$store.dispatch('fetchCard',params); 
      }
    
    };
