@@ -5,7 +5,7 @@
   <a class="pagination-next">Next page</a>
   <ul class="pagination-list" v-for="(element, index) in paginationLink">
     <li>
-      <a class="pagination-link" aria-label="Page 1" aria-current="page">{{index + 1 }}</a>
+      <a class="pagination-link" aria-label="Page 1" aria-current="page" @click="getItemsPerPage(index)">{{index + 1 }}</a>
     </li>
   </ul>
 </nav>
@@ -14,19 +14,15 @@
 <script>
    export default {
      name: "paginator",
-     data() {
-       return {
-         limit :  this.$parent.limit,
-         offset  :  this.$parent.offset
-       }
-    },
     computed: {
         paginationLink(){
-         return  Math.floor(this.$store.state.cards.length / this.limit) + 1;
+         return  Math.floor(this.$store.state.cards.length /  this.$parent.limit) + 1;
         }
      },
      methods:{
-       
+       getItemsPerPage(index){
+            this.$emit('update-pagination-link', index);
+       }
        
      }
    };
