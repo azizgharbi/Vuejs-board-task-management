@@ -31,6 +31,7 @@
 </template>
 <script>
     import paginator from "./Paginator";
+    import { EventBus } from "./../event";
    export default {
      name: "Cards",
       props: ['limit','offset'],
@@ -39,6 +40,7 @@
      },
      computed: {
        cards(){
+         EventBus.$on('updatePaginationLink', function (msg) {console.log(msg)})
          return this.$store.state.cards;
        }
      },
@@ -51,7 +53,6 @@
             this.$store.commit('DeleteCardTodatabase',card);
           }
      },
-   
      created() {
        // dispatch like commit but for actions
        var params = {"limit" : this.limit,"offset" : this.offset}

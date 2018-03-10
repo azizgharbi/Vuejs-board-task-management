@@ -12,6 +12,8 @@
   </div>
 </template>
 <script>
+
+  import { EventBus } from "./../event";
    export default {
      name: "paginator",
     computed: {
@@ -21,9 +23,8 @@
      },
      methods:{
        getItemsPerPage(index){
-            this.$emit('update-pagination-link', index);
+            EventBus.$emit('updatePaginationLink', index);
        }
-       
      }
    };
 </script>
