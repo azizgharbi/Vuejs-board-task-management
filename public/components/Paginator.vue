@@ -1,5 +1,5 @@
 <template>
-  <div class="position" v-if="elements > perPage">
+  <div class="position">
       <nav class="pagination" role="navigation" aria-label="pagination">
   <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
   <a class="pagination-next">Next page</a>
@@ -14,21 +14,19 @@
 <script>
    export default {
      name: "paginator",
-     props: ['perPage'],
      data() {
        return {
-         
+         limit :  this.$parent.limit,
+         offset  :  this.$parent.offset
        }
     },
     computed: {
-       elements(){
-         return  Math.floor(this.$store.state.cards.length);
-       },
         paginationLink(){
-         return  Math.floor(this.$store.state.cards.length / this.perPage);
-       }
+         return  Math.floor(this.$store.state.cards.length / this.limit) + 1;
+        }
      },
      methods:{
+       
        
      }
    };

@@ -26,7 +26,7 @@
          </div>
       </div>
    </div>
-   <paginator perPage="5"></paginator>
+   <paginator></paginator>
 </div>
 </template>
 <script>
