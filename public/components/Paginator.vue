@@ -1,8 +1,6 @@
 <template>
   <div class="position">
-      <nav class="pagination" role="navigation" aria-label="pagination">
-  <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
-  <a class="pagination-next">Next page</a>
+  <nav class="pagination" role="navigation" aria-label="pagination">
   <ul class="pagination-list" v-for="(element, index) in paginationLink">
     <li>
       <a class="pagination-link" aria-label="Page 1" aria-current="page" @click="getItemsPerPage(index)">{{index + 1 }}</a>
@@ -16,6 +14,11 @@
   import { Event } from "./../event";
    export default {
      name: "paginator",
+     data: function () {
+        return { 
+          paginationLinks:  0
+        } 
+    },
     computed: {
         paginationLink(){
          return  Math.floor(this.$store.state.cards.length /  this.$parent.limit) + 1;

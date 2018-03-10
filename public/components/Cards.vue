@@ -54,10 +54,15 @@
      },
      created() {
        //handle event
-       Event.$on('updatePaginationLink', index => {console.log(index)});
+       Event.$on('updatePaginationLink', index => {
+        let pageIndex = index + 1;
+        let self = this;
+        let newParams = {"limit" :  parseInt(self.limit) * pageIndex ,"offset" : (parseInt(self.offset) + pageIndex)*pageIndex}
+        this.$store.dispatch('fetchCard',newParams);
+       });
        // dispatch like commit but for actions
-       var params = {"limit" : this.limit,"offset" : this.offset}
-       this.$store.dispatch('fetchCard',params); 
+       let params = {"limit" : this.limit,"offset" : this.offset}
+       this.$store.dispatch('fetchCard',params);
      }
    
    };
