@@ -13,7 +13,7 @@
 </template>
 <script>
 
-  import { EventBus } from "./../event";
+  import { Event } from "./../event";
    export default {
      name: "paginator",
     computed: {
@@ -23,7 +23,7 @@
      },
      methods:{
        getItemsPerPage(index){
-            EventBus.$emit('updatePaginationLink', index);
+            Event.$emit('updatePaginationLink', index);
        }
      }
    };
