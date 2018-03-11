@@ -9,7 +9,7 @@ module.exports = {
     },
 
     GetCards:function(req,res){
-       CardModel.Card.findAll({
+       CardModel.Card.findAndCountAll({
             attributes: ['id','title', 'description','status'],
             offset:  parseInt(req.params.offset),
             limit : parseInt(req.params.limit)
@@ -17,7 +17,6 @@ module.exports = {
             res.json(cards);
           });
     },
-
     CreateCard:function(req,res){
 
         CardModel.Card.create(

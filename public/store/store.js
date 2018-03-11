@@ -40,7 +40,8 @@ Vue.use(Vuex);
           .then( cards => {
             store.commit('setCards',cards.data);
           }).catch( error =>{console.log(error);});
-        }
+        },
+
         
       }
      

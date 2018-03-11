@@ -14,14 +14,9 @@
   import { Event } from "./../event";
    export default {
      name: "paginator",
-     data: function () {
-        return { 
-          paginationLinks:  0
-        } 
-    },
     computed: {
         paginationLink(){
-         return  Math.floor(this.$store.state.cards.length /  this.$parent.limit) + 1;
+          return (this.$store.state.cards.count &&  this.$parent.limit) ? Math.floor(this.$store.state.cards.count /  this.$parent.limit) + 1 : 0;
         }
      },
      methods:{
