@@ -55,9 +55,8 @@
      created() {
        //handle event
        Event.$on('updatePaginationLink', index => {
-        let pageIndex = index + 1;
         let self = this;
-        let newParams = {"limit" :  parseInt(self.limit) * pageIndex ,"offset" : (parseInt(self.offset) + pageIndex)*pageIndex}
+        let newParams = {"limit" :  self.limit ,"offset" :  self.limit *  index}
         this.$store.dispatch('fetchCard',newParams);
        });
        // dispatch like commit but for actions
