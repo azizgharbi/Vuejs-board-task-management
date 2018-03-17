@@ -1,7 +1,7 @@
 <template>
 <div>
    <div class="columns is-gapless is-multiline is-mobile" >
-      <div class="column cardSpace" v-for=" card in cards">
+      <div class="column cardSpace" v-for=" card in cards" :key="card.id">
          <div class="card" >
             <header class="card-header">
                <p class="card-header-title">
