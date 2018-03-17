@@ -50,10 +50,6 @@
           },
           deleteCard(card){
             this.$store.commit('DeleteCardTodatabase',card);
-            /** when delete a card update pagination link */
-            const pagination_link_rest =  this.$store.state.cards.count % this.limit;
-            const pagination_link =  Math.floor(this.$store.state.cards.count / this.limit);
-            Event.$emit('deleteCard', ( pagination_link_rest !== 0) ? pagination_link + 1 : pagination_link);
           }
      },
      created() {

@@ -19,13 +19,8 @@
     computed: {
         paginationLink(){
           if(this.$store.state.cards.count &&  this.$parent.limit) {
-              const pagination_link_rest =  this.$store.state.cards.count % this.$parent.limit;
-               const pagination_link =  Math.floor(this.$store.state.cards.count / this.$parent.limit);
-
-                Event.$on('deleteCard', paginationLink => {
-                      return paginationLink ;
-                });
-                
+              const pagination_link_rest =  this.$store.state.cards.count % this.$parent.limit,
+                    pagination_link =  Math.floor(this.$store.state.cards.count / this.$parent.limit);
               return ( pagination_link_rest !== 0) ? pagination_link + 1 : pagination_link;
           }
         }
