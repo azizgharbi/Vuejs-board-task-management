@@ -21,7 +21,7 @@ Vue.use(Vuex);
           }).then(response => {console.log(response.data);});
         },
         DeleteCardTodatabase(state,card){
-          state.cards .splice(state.cards .indexOf(card), 1);
+          state.cards.rows.splice(state.cards.rows.indexOf(card), 1);
           axios.delete('/api/delete/card/' + card.id).then(response => {console.log(response.data);});
         },
         UpdateCardTodatabase(state,card){

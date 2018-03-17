@@ -49,6 +49,7 @@
             this.$store.commit('UpdateCardTodatabase',card);
           },
           deleteCard(card){
+            console.log(card);
             this.$store.commit('DeleteCardTodatabase',card);
           }
      },
