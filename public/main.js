@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import cards from './components/Cards';
+import Update from './components/Update';
 import form from './components/Create';
 import { store } from "./store/store";
 
@@ -12,7 +13,8 @@ const params = { limit: 5 , offset : 0};
 
 const routes = [
   { path: '/board', component: cards ,props: params },
-  { path: '/create', component: form }
+  { path: '/create', component: form },
+  { path: '/card/:id',   name: 'update', component: Update }
 ]
 
 const router = new VueRouter({

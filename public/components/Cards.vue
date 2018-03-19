@@ -17,7 +17,10 @@
                <div class="content">
                   {{card.description}}
                </div>
+                  
+                  <router-link class="button is-link is-small" :to="{name: 'update', params: { id: card.id } }">Edit</router-link>
             </div>
+
             <footer class="card-footer" style="padding:10px;">
                <button class="button is-primary buttonSpace" @click="changeStatus(card,'Done')">Done</button>
                <button class="button is-warning buttonSpace" @click="changeStatus(card,'in progress')">in progress</button>
