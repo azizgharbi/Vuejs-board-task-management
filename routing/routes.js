@@ -6,6 +6,14 @@ app.post('/api/save/card',HomeController.CreateCard);
 app.delete('/api/delete/card/:id',HomeController.DeleteCard);
 app.put('/api/update/card/:id',HomeController.UpdateCard);
 
+/** 
+ * redirect 404  
+ */
+
+app.get('*',function(req,res){
+    return res.redirect("/");
+})
+
 
 
 
