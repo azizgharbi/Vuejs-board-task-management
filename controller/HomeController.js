@@ -17,6 +17,15 @@ module.exports = {
             res.json(cards);
           });
     },
+    GetCard:function(req,res){
+        CardModel.Card.findAll( {
+          where: {
+            id: req.params.id
+          }
+        }).then(card =>{
+            res.json(card);
+          });
+     },
     CreateCard:function(req,res){
 
         CardModel.Card.create(
@@ -44,7 +53,19 @@ module.exports = {
         });
     },
     
-    UpdateCard:function(req,res){
+    UpdateCardStatus:function(req,res){
+        
+        CardModel.Card.update({
+            status: req.body.data.status,
+          }, {
+            where: {
+              id: req.params.id
+            }
+          }).then(card => {
+            res.json({"status" : "success"});
+          });
+     },
+     UpdateCard:function(req,res){
         
         CardModel.Card.update({
             status: req.body.data.status,
