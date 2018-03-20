@@ -18,7 +18,7 @@ module.exports = {
           });
     },
     GetCard:function(req,res){
-        CardModel.Card.findAll( {
+        CardModel.Card.findAll({
           where: {
             id: req.params.id
           }

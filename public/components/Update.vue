@@ -3,25 +3,25 @@
       <div class="field">
          <label class="label">Title</label>
          <div class="control">
-            <input class="input" type="text" placeholder="Example : RSP-452">
+            <input class="input" type="text" placeholder="Example : RSP-452" v-model="title">
          </div>
       </div>
       <textarea 
          class="textarea" 
-         placeholder="Explain what do you want clearly" >
+         placeholder="Explain what do you want clearly" v-model="description">
    </textarea>
    <div class="row">
       <div class="control">
          <label class="radio">
-         <input type="radio" name= "status" value = "To do" >
+         <input type="radio" name= "status" value = "To do" v-model="status">
          To do
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value ="In progress" >
+         <input type="radio" name= "status" value ="In progress" v-model="status">
          In progress
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value = "Done" >
+         <input type="radio" name= "status" value = "Done" v-model="status">
          Done
          </label>
       </div>
@@ -37,17 +37,23 @@
      name: "Update",
      data() {
        return {
-          
+          title:'',
+          status: 'To do',
+          description:''
        }
     },
      computed: {
        card(){
-         return this.$store.state.card;
+         let card = this.$store.state.card[0];
+          this.title = card.title;
+          this.description = card.description;
+          this.status = card.status;
+         return card;
        }
      },
      methods:{
            updateCard(card){
-            //this.$store.commit('UpdateCardTodatabase',card);
+            this.$store.commit('UpdateCardTodatabase',card);
           }
     },
      created() {    
