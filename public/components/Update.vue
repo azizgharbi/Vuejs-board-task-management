@@ -13,15 +13,15 @@
    <div class="row">
       <div class="control">
          <label class="radio">
-         <input type="radio" name= "status" value = "To do" v-model="status">
+         <input type="radio" name= "status" value = "To do">
          To do
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value ="In progress" v-model="status">
+         <input type="radio" name= "status" value ="In progress">
          In progress
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value = "Done" v-model="status">
+         <input type="radio" name= "status" value = "Done" >
          Done
          </label>
       </div>
@@ -44,11 +44,7 @@
     },
      computed: {
        card(){
-         let card = this.$store.state.card[0];
-          this.title = card.title;
-          this.description = card.description;
-          this.status = card.status;
-         return card;
+         return this.$store.state.card[0];
        }
      },
      methods:{
@@ -59,6 +55,13 @@
      created() {    
        // dispatch like commit but for actions
        this.$store.dispatch('getCard', this.$route.params.id);
+          let card =this.$store.state.card ;
+          this.title = card.title;
+          this.description = card.description;
+          this.status = card.status;
+          console.log(card);
+       
+       
      }
    };
 </script>

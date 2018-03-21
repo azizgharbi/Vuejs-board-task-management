@@ -45,7 +45,7 @@ Vue.use(Vuex);
       }, 
       actions:{ // make call from api
 
-        fetchCard(state,params){
+        fetchCards(state,params){
           axios.get('/api/cards/'+ params.limit +"/" + params.offset)
           .then( cards => {
             store.commit('setCards',cards.data);
