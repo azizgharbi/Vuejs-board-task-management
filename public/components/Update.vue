@@ -13,15 +13,15 @@
    <div class="row">
       <div class="control">
          <label class="radio">
-         <input type="radio" name= "status" value = "To do">
+         <input type="radio" name= "status" value = "To do" v-model="status" :checked = "status === 'To do'">
          To do
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value ="In progress">
+         <input type="radio" name= "status" value ="In progress" v-model="status" :checked = "status === 'In progress'">
          In progress
          </label>
          <label class="radio">
-         <input type="radio" name= "status" value = "Done" >
+         <input type="radio" name= "status" value = "Done" v-model="status" :checked = "status === 'Done'">
          Done
          </label>
       </div>
@@ -44,7 +44,7 @@
     },
      computed: {
        card(){
-         return this.$store.state.card[0];
+         return this.$store.state.card;
        }
      },
      methods:{
@@ -52,16 +52,19 @@
             this.$store.commit('UpdateCardTodatabase',card);
           }
     },
-     created() {    
+     mounted() {  
        // dispatch like commit but for actions
        this.$store.dispatch('getCard', this.$route.params.id);
-          let card =this.$store.state.card ;
-          this.title = card.title;
-          this.description = card.description;
-          this.status = card.status;
-          console.log(card);
+       // init data
+       const self =this;
+       setTimeout(() => {
+          self.title = self.$store.state.card.title;
+          self.status = self.$store.state.card.status;
+          self.description = self.$store.state.card.description;
+        }, 1000);
        
        
+
      }
    };
 </script>

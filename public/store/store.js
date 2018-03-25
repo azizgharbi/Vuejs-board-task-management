@@ -54,7 +54,7 @@ Vue.use(Vuex);
         getCard(state,id){
           axios.get('/api/card/'+ id)
           .then( card => {
-            store.commit('setCard',card.data);
+            store.commit('setCard',card.data[0]);
           });
         }
       }
