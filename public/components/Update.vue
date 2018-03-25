@@ -1,5 +1,6 @@
 <template>
     <div>
+    <div v-show="loading">
       <div class="field">
          <label class="label">Title</label>
          <div class="control">
@@ -26,6 +27,12 @@
          </label>
       </div>
    </div>
+    </div>
+    
+        <div class = "row" >
+        <span  id="loader"></span>
+        </div>
+
       <div class="row">
        <a class="button is-primary">Update</a>
        <a class="button is-warning">Clear</a>
@@ -33,13 +40,18 @@
    </div>
 </template>
 <script>
+import {Spinner} from 'spin.js';
+import {opts} from './../spinner/options';
+
+
    export default {
      name: "Update",
      data() {
        return {
           title:'',
           status: 'To do',
-          description:''
+          description:'',
+          loading : false
        }
     },
      computed: {
@@ -55,16 +67,18 @@
      mounted() {  
        // dispatch like commit but for actions
        this.$store.dispatch('getCard', this.$route.params.id);
-       // init data
-       const self =this;
+      // init spinner
+       const self =this,
+            target = document.getElementById('loader'),     
+            spinner = new Spinner(opts).spin(target);
+      // init data
        setTimeout(() => {
           self.title = self.$store.state.card.title;
           self.status = self.$store.state.card.status;
           self.description = self.$store.state.card.description;
+          self.loading = true;
+          spinner.stop();
         }, 1000);
-       
-       
-
      }
    };
 </script>

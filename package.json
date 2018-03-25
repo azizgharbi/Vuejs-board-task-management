@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "mysql2": "^1.5.2",
-    "sequelize": "^4.35.2"
+    "sequelize": "^4.35.2",
+    "spin.js": "^3.1.0"
   }
 }
