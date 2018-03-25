@@ -44,11 +44,13 @@
     },
      methods:{
        AddToBoardComponent(){
-         let  card = {
+         
+         const  card = {
             "title" : this.title,
             "status" : this.status,
             "description" : this.description
           }
+
           this.$store.commit('AddCardTodatabase',card);
        },
        Clear(){

@@ -33,8 +33,8 @@ Vue.use(Vuex);
             data: card
           }).then(response => {console.log(response.data);});
         },
-        UpdateCardTodatabase(state,id){
-          axios.put('/api/card/' + id , {
+        UpdateCardTodatabase(state,card){
+          axios.put('/api/update/card/' + card.id , {
             data: card
           }).then(response => {console.log(response.data);});
         }

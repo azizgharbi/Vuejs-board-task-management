@@ -68,7 +68,9 @@ module.exports = {
      UpdateCard:function(req,res){
         
         CardModel.Card.update({
+            title: req.body.data.title,
             status: req.body.data.status,
+            description: req.body.data.description
           }, {
             where: {
               id: req.params.id

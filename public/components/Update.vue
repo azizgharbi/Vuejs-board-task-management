@@ -28,13 +28,13 @@
       </div>
    </div>
     </div>
-    
+
         <div class = "row" >
         <span  id="loader"></span>
         </div>
 
       <div class="row">
-       <a class="button is-primary">Update</a>
+       <a class="button is-primary" @click="updateCard()">Update</a>
        <a class="button is-warning">Clear</a>
       </div>
    </div>
@@ -60,7 +60,15 @@ import {opts} from './../spinner/options';
        }
      },
      methods:{
-           updateCard(card){
+           updateCard(){
+
+             const  card = {
+                "id" : this.$route.params.id,
+                "title" : this.title,
+                "status" : this.status,
+                "description" : this.description
+            }
+
             this.$store.commit('UpdateCardTodatabase',card);
           }
     },
