@@ -19,7 +19,6 @@
     "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
     "css-loader": "^0.28.7",
-    "express-handlebars": "^3.0.0",
     "file-loader": "^1.1.5",
     "node-sass": "^4.5.3",
     "path": "^0.12.7",
@@ -41,6 +40,7 @@
     "express": "^4.13.4",
     "mysql2": "^1.5.2",
     "sequelize": "^4.35.2",
+    "express-handlebars": "^3.0.0",
     "spin.js": "^3.1.0"
   }
 }
