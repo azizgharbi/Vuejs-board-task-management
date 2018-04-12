@@ -72,7 +72,7 @@ import {opts} from './../spinner/options';
             this.$store.commit('UpdateCardTodatabase',card);
           }
     },
-     mounted() {  
+     created() {  
        // dispatch like commit but for actions
        this.$store.dispatch('getCard', this.$route.params.id);
       // init spinner
