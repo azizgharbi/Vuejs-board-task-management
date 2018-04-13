@@ -3,7 +3,7 @@
   <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
          <li>
-            <a href="/">Board</a>
+            <router-link to="/">Board</router-link>
          </li>
          <li>
             <router-link to="/create">Create a card</router-link>
@@ -11,20 +11,12 @@
       </ul>
    </nav>
    <router-view></router-view>
-   <cards  limit = "5" offset = "0"></cards>
 </div>
 </template>
 <script>
 
-import Cards from "./Cards";
 
    export default {
-     name: "app",
-     components:{
-       Cards
-     }
+     name: "app"
    };
 </script>
-<style>
-
-</style>
