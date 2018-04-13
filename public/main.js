@@ -17,6 +17,23 @@ const routes = [
   { path: '/card/:id',   name: 'update', component: Update }
 ]
 
+/*const routes = [
+  { path: '/', component: App,
+    children: [
+      {
+        path: '/create',
+        component: Create
+      },
+      {
+        path: '/card/:id',
+        name: 'update',
+        component: Update
+      }
+    ]
+  }
+]*/
+
+
 const router = new VueRouter({
   mode: 'history',
   routes 
