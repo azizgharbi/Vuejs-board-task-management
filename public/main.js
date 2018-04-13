@@ -22,7 +22,7 @@ const router = new VueRouter({
   routes 
 })
 
-let app = new Vue({
+new Vue({
   el: '#app',
   store : store,
   router,
