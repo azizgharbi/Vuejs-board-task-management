@@ -23,14 +23,16 @@
        }
   },
   data () {
-    return { page : 1 }
+    return { 
+      page : 1 
+    }
   },
-    computed: {
+  computed: {
         paginationLink(){
           return this.paginationsNumberLink();
         }
      },
-     methods:{
+  methods:{
        paginationsNumberLink(){
          if(this.$store.state.cards.count &&  this.$parent.limit) {
               const pagination_link_rest =  this.$store.state.cards.count % this.$parent.limit,
@@ -40,9 +42,16 @@
        },
        getItemsPerPage(index){
            Event.$emit('updatePaginationLink', index + this.page);
+             
        },
        nextPage(){
-            this.page += 1;
+        let self = this;
+        let lastIndex = this.paginationsNumberLink() - 1 ;
+        let newParams = {"limit" :  self.limit ,"offset" :  self.limit *  lastIndex}
+           this.$store.dispatch('fetchCards',newParams);
+           if(this.$store.state.cards.rows.length > 0){
+              this.page += 1;        
+           }
        }
      }
    };
