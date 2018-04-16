@@ -69,7 +69,7 @@
        Event.$on('updatePaginationLink', index => {
         let self = this;
         let newParams = {"limit" :  self.limit ,"offset" :  self.limit *  index}
-        this.$store.dispatch('fetchCards',newParams);
+           this.$store.dispatch('fetchCards',newParams);
        });
        // dispatch like commit but for actions
        let params = {"limit" : this.limit,"offset" : this.offset}

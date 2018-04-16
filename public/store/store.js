@@ -48,7 +48,9 @@ Vue.use(Vuex);
         fetchCards(state,params){
           axios.get('/api/cards/'+ params.limit +"/" + params.offset)
           .then( cards => {
-            store.commit('setCards',cards.data);
+            if(cards.data.rows.length > 0 ){
+              store.commit('setCards',cards.data);
+            }
           }).catch( error =>{console.log(error);});
         },
         getCard(state,id){

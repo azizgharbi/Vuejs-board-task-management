@@ -39,10 +39,10 @@
           }
        },
        getItemsPerPage(index){
-            Event.$emit('updatePaginationLink', index + this.page);
+           Event.$emit('updatePaginationLink', index + this.page);
        },
        nextPage(){
-             this.page += 1;
+            this.page += 1;
        }
      }
    };
