@@ -29,7 +29,7 @@
          </div>
       </div>
    </div>
-   <paginator></paginator>
+   <paginator :limit = "5" ></paginator>
 </div>
 </template>
 <script>
@@ -37,7 +37,16 @@
     import { Event } from "./../event";
    export default {
      name: "Cards",
-      props: ['limit','offset'],
+      props: {
+       limit: {
+        type: Number,
+        required: true
+       },
+       offset : {
+        type: Number,
+        required: true
+       }
+  },
      components:{
        paginator
      },
