@@ -24,7 +24,8 @@
   },
   data () {
     return { 
-      page : 1 
+      page : 1,
+      pageCounter: 0
     }
   },
   computed: {
@@ -45,14 +46,15 @@
              
        },
        nextPage(){
-        let self = this;
-        let lastIndex = this.paginationsNumberLink() - 1 ;
-        let newParams = {"limit" :  self.limit ,"offset" :  self.limit *  lastIndex}
-           this.$store.dispatch('fetchCards',newParams);
-           if(this.$store.state.cards.rows.length > 0){
-              this.page += 1;        
-           }
+         this.pageCounter += 1;
+          let x = Math.floor(this.$store.state.cards.count / this.limit),
+              y = x - this.limit;
+              console.log(y);
+         if(y === this.pageCounter){
+            this.page += 1;        
+         }
        }
+
      }
    };
 </script>
