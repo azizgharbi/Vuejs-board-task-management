@@ -35,7 +35,7 @@
 
       <div class="row">
        <a class="button is-primary" @click="updateCard()">Update</a>
-       <a class="button is-warning">Clear</a>
+       <a class="button is-warning" @click="clear()">Clear</a>
       </div>
    </div>
 </template>
@@ -70,7 +70,12 @@ import {opts} from './../spinner/options';
             }
 
             this.$store.commit('UpdateCardTodatabase',card);
-          }
+          },
+
+        Clear(){
+         this.title ="";
+         this.description = "";
+       }
     },
      created() {  
        // dispatch like commit but for actions

@@ -38,21 +38,19 @@
          if(this.$store.state.cards.count &&  this.$parent.limit) {
               const pagination_link_rest =  this.$store.state.cards.count % this.$parent.limit,
                     pagination_link =  Math.floor(this.$store.state.cards.count / this.$parent.limit);
-              return ( pagination_link_rest !== 0) ? pagination_link + 1 : pagination_link;
+            return ( pagination_link_rest !== 0) ? pagination_link + 1 : pagination_link;
           }
        },
        getItemsPerPage(index){
            Event.$emit('updatePaginationLink', index + this.page);
-             
        },
        nextPage(){
-         this.pageCounter += 1;
-          let x = Math.floor(this.$store.state.cards.count / this.limit),
-              y = x - this.limit;
-              console.log(y);
-         if(y === this.pageCounter){
-            this.page += 1;        
-         }
+        this.pageCounter += 1;
+        let x = Math.floo(this.$store.state.cards.count / this.limit),
+            y = ((this.$store.state.cards.count % this.limit) === 0) ? x - this.limit : (x - this.limit) + 1;
+        if(y > this.pageCounter){
+              this.page += 1;        
+        }
        }
 
      }
