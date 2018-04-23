@@ -1,7 +1,7 @@
 <template>
   <div class="position">
   <nav class="pagination" role="navigation" aria-label="pagination">
-    <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
+    <a class="pagination-previous" title="This is the first page" @click="previousPage()" :disabled="pageCounter === 0">Previous</a>
     <a class="pagination-next" @click="nextPage()">Next page</a>
   <ul class="pagination-list" v-for="(element, index) in paginationLink" :key="index">
     <li v-if=" limit >= index + 1">
@@ -46,12 +46,20 @@
        },
        nextPage(){
         this.pageCounter += 1;
-        let x = Math.floo(this.$store.state.cards.count / this.limit),
+        let x = Math.floor(this.$store.state.cards.count / this.limit),
             y = ((this.$store.state.cards.count % this.limit) === 0) ? x - this.limit : (x - this.limit) + 1;
         if(y > this.pageCounter){
               this.page += 1;        
         }
+      },
+      previousPage(){
+        if(this.pageCounter > 0){
+          this.pageCounter -= 1;
+        }
+        if(this.page > 1){
+          this.page -= 1;
        }
+      }
 
      }
    };
