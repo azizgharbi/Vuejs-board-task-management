@@ -29,7 +29,7 @@
          </div>
       </div>
    </div>
-   <paginator :limit = "5" ></paginator>
+   <paginator :perPage = "5" :total = "this.$store.state.cards.count"></paginator>
 </div>
 </template>
 <script>
