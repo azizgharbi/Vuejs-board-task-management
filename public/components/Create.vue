@@ -10,22 +10,24 @@
          class="textarea" 
          placeholder="Explain what do you want clearly" v-model="description">
    </textarea>
-   <div class="row">
-      <div class="control">
-         <label class="radio">
-         <input type="radio" name= "status" value = "To do" v-model="status">
-         To do
-         </label>
-         <label class="radio">
-         <input type="radio" name= "status" value ="In progress" v-model="status">
-         In progress
-         </label>
-         <label class="radio">
-         <input type="radio" name= "status" value = "Done" v-model="status">
-         Done
-         </label>
-      </div>
-   </div>
+    <section class="radio-section">
+        <div class="block">
+            <b-radio v-model="status"
+                native-value="To do">
+                         To do
+
+            </b-radio>
+            <b-radio v-model="status"
+                native-value="In progress">
+                         In progress
+
+            </b-radio>
+            <b-radio v-model="status"
+                native-value="Done">
+                Done
+            </b-radio>
+        </div>
+    </section>
       <div class="row">
        <a class="button is-primary" @click="AddToBoardComponent()">Create</a>
        <a class="button is-warning" @click="Clear()">Clear</a>
@@ -61,7 +63,7 @@
    };
 </script>
 <style>
-.row{
+.radio-section{
   margin-top: 30px;
   margin-bottom: 30px;
 }
