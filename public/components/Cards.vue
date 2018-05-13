@@ -75,7 +75,6 @@
       current: function (value) {
         let self = this;
         let newParams = {"limit" :  self.limit ,"offset" : self.limit  * value};
-        console.log(newParams);
            this.$store.dispatch('fetchCards',newParams);
       }
     },
