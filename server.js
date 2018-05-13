@@ -22,6 +22,7 @@ app.use(methodOverride('_method'));
 // set engine handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'default'}));
 app.set('view engine', 'handlebars');
+
 //database connection
 database.sequelize.authenticate()
 .then(() => {
