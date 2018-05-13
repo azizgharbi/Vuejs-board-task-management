@@ -29,14 +29,30 @@
          </div>
       </div>
    </div>
-   <paginator :perPage = "5" :total = "this.$store.state.cards.count"></paginator>
+     <b-pagination
+            :total="total"
+            :current.sync="current"
+            :order="order"
+            :size="size"
+            :simple="isSimple"
+            :rounded="isRounded"
+            :per-page= 5 >
+        </b-pagination>
 </div>
 </template>
 <script>
-    import paginator from "./Paginator";
-    import { Event } from "./../event";
+  import { Event } from "./../event";
    export default {
      name: "Cards",
+      data() {
+            return {
+                current: 1,
+                order: '',
+                size: '',
+                isSimple: false,
+                isRounded: false
+            }
+        },
       props: {
        limit: {
         type: Number,
@@ -47,14 +63,22 @@
         required: true
        }
   },
-     components:{
-       paginator
-     },
      computed: {
        cards(){
          return this.$store.state.cards.rows;
+       },
+       total(){
+         return this.$store.state.cards.count;
        }
      },
+     watch: {
+      current: function (value) {
+        let self = this;
+        let newParams = {"limit" :  self.limit ,"offset" : self.limit  * value};
+        console.log(newParams);
+           this.$store.dispatch('fetchCards',newParams);
+      }
+    },
      methods:{
           changeStatus(card,status){
             card.status = status;
@@ -65,12 +89,6 @@
           }
      },
      created() {
-       //handle event
-       Event.$on('updatePaginationLink', index => {
-        let self = this;
-        let newParams = {"limit" :  self.limit ,"offset" :  self.limit *  index}
-           this.$store.dispatch('fetchCards',newParams);
-       });
        // dispatch like commit but for actions
        let params = {"limit" : this.limit,"offset" : this.offset}
        this.$store.dispatch('fetchCards',params);

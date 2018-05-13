@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Buefy from 'buefy';
+import 'buefy/lib/buefy.css';
+
 
 import Update from './components/Update';
 import Create from './components/Create';
@@ -13,8 +16,10 @@ import { store } from "./store/store";
 
 
 Vue.use(VueRouter);
+Vue.use(Buefy);
 
-const params = { limit: 5 , offset : 0 };
+
+const params = { limit: 4 , offset : 0 };
 
 const routes = [
   { path: '/', component: Cards ,props: params },

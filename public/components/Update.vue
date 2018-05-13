@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div v-show="loading">
+    <div>
       <div class="field">
          <label class="label">Title</label>
          <div class="control">
@@ -29,10 +29,6 @@
    </div>
     </div>
 
-        <div class = "row" >
-        <span  id="loader"></span>
-        </div>
-
       <div class="row">
        <a class="button is-primary" @click="updateCard()">Update</a>
        <a class="button is-warning" @click="clear()">Clear</a>
@@ -40,9 +36,8 @@
    </div>
 </template>
 <script>
-import {Spinner} from 'spin.js';
-import {opts} from './../spinner/options';
 
+import axios from 'axios';
 
    export default {
      name: "Update",
@@ -50,8 +45,7 @@ import {opts} from './../spinner/options';
        return {
           title:'',
           status: 'To do',
-          description:'',
-          loading : false
+          description:''
        }
     },
      computed: {
@@ -60,7 +54,7 @@ import {opts} from './../spinner/options';
        }
      },
      methods:{
-           updateCard(){
+        updateCard(){
 
              const  card = {
                 "id" : this.$route.params.id,
@@ -78,20 +72,14 @@ import {opts} from './../spinner/options';
        }
     },
      created() {  
-       // dispatch like commit but for actions
-       this.$store.dispatch('getCard', this.$route.params.id);
-      // init spinner
-       const self =this,
-            target = document.getElementById('loader'),     
-            spinner = new Spinner(opts).spin(target);
-      // init data
-       setTimeout(() => {
-          self.title = self.$store.state.card.title;
-          self.status = self.$store.state.card.status;
-          self.description = self.$store.state.card.description;
-          self.loading = true;
-          spinner.stop();
-        }, 1000);
+
+       axios.get('/api/card/'+ this.$route.params.id)
+          .then( card => {
+            this.title = card.data[0].title;
+            this.status = card.data[0].status;
+            this.description = card.data[0].description;
+          });
+
      }
    };
 </script>

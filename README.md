@@ -1,11 +1,11 @@
 
 ### Demo
 
-#### Technologies : vuejs (vue-router-vuex) - nodejs (express) - Sequelize.js ORM - Webpack 4
-
-![Imgur Image](image/source.gif)
+#### Technologies : vuejs (vue-router-vuex) - nodejs (express) - Sequelize.js ORM - Webpack 4 - buefy
 
 
-#### Pagination included
+### URL ###
 
-![Imgur Image](image/pagination.png)
+* buefy : [buefy.github.io](https://buefy.github.io/)
+
+![Imgur Image](image/project.png)
