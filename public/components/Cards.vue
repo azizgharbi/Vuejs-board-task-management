@@ -50,7 +50,7 @@
                 order: '',
                 size: '',
                 isSimple: false,
-                isRounded: false
+                isRounded: true
             }
         },
       props: {

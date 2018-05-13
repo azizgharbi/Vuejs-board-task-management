@@ -19,30 +19,13 @@ Vue.use(VueRouter);
 Vue.use(Buefy);
 
 
-const params = { limit: 4 , offset : 0 };
+const params = { limit: 5 , offset : 0 };
 
 const routes = [
   { path: '/', component: Cards ,props: params },
   { path: '/create', component: Create },
   { path: '/card/:id',   name: 'update', component: Update }
 ]
-
-/*const routes = [
-  { path: '/', component: App,
-    children: [
-      {
-        path: '/create',
-        component: Create
-      },
-      {
-        path: '/card/:id',
-        name: 'update',
-        component: Update
-      }
-    ]
-  }
-]*/
-
 
 const router = new VueRouter({
   mode: 'history',
