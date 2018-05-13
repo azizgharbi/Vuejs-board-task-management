@@ -8,4 +8,4 @@
 
 * buefy : [buefy.github.io](https://buefy.github.io/)
 
-![Imgur Image](image/project.png)
+![Imgur Image](image/demo.png)
