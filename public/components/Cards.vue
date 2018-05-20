@@ -76,6 +76,11 @@
         let self = this;
         let newParams = {"limit" :  self.limit ,"offset" : self.limit  * value};
            this.$store.dispatch('fetchCards',newParams);
+      },
+      cards(value){
+        if(value.length === 0){
+          location.reload();
+        }
       }
     },
      methods:{
