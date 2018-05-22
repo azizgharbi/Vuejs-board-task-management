@@ -1,5 +1,7 @@
 const path = require('path');
-var webpack = require('webpack');
+const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 
 module.exports = {
     entry: './public/main.js',
@@ -7,8 +9,9 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/js/dist')
     },
-    watch: true,
-
+    plugins:[
+        new VueLoaderPlugin()
+    ],
     module: {
         rules: [
             {
@@ -26,10 +29,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
+                    loader: 'babel-loader'
                 }
             }
         ]
