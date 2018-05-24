@@ -42,7 +42,7 @@
         </div>
     </section>
     </div>
-      <div class="row">
+      <div class="row" v-if="form.length">
        <a class="button is-primary" @click="createCards()">Create</a>
       </div>
    </div>
