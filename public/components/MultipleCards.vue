@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="multipleForm">
     <div class="columns is-mobile">
         <div class="column is-2 is-offset-10">
             <a class="button is-success" @click="addForm">Add Form</a>
@@ -7,7 +7,7 @@
     </div>
     <div v-for=" (formElment,index) in form" :key="formElment.id">
         <div class="columns is-mobile">
-            <div class="column is-2 is-offset-10">
+            <div class="column is-2 is-offset-11">
                 <span class="deleteButton"><a class="delete is-medium" @click="deleteForm(index)"></a></span>
             </div>
         </div>
@@ -44,7 +44,6 @@
     </div>
       <div class="row">
        <a class="button is-primary" @click="createCards()">Create</a>
-       <a class="button is-warning" @click="Clear()">Clear</a>
       </div>
    </div>
 </template>
@@ -85,8 +84,11 @@
    };
 </script>
 <style>
-.radio-section{
+.radio-section .row{
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.multipleForm{
+    margin-bottom: 30px;
 }
 </style>
