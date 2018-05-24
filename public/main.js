@@ -7,6 +7,7 @@ import 'buefy/lib/buefy.css';
 import Update from './components/Update';
 import Create from './components/Create';
 import Cards from "./components/Cards";
+import MultipleCreate from "./components/MultipleCards"
 
 
 import App from './components/App';
@@ -24,6 +25,7 @@ const params = { limit: 5 , offset : 0 };
 const routes = [
   { path: '/', component: Cards ,props: params },
   { path: '/create', component: Create },
+  { path: '/multiple', component: MultipleCreate },
   { path: '/card/:id',   name: 'update', component: Update }
 ]
 
