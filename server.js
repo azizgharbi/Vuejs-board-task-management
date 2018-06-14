@@ -8,6 +8,9 @@ var path           = require('path'),
     app            = express();
 
 // assets in the public folder
+app.use(history({
+    verbose: true
+}));
 app.use('/static', express.static('public'));
 app.use(express.static(path.join(__dirname, 'views')));
 //body-parser
