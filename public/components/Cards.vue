@@ -41,73 +41,72 @@
 </div>
 </template>
 <script>
-  import { Event } from "./../event";
-   export default {
-     name: "Cards",
-      data() {
-            return {
-                current: 1,
-                order: '',
-                size: '',
-                isSimple: false,
-                isRounded: true
-            }
-        },
-      props: {
-       limit: {
-        type: Number,
-        required: true
-       },
-       offset : {
-        type: Number,
-        required: true
-       }
+import { Event } from "./../event";
+export default {
+  name: "Cards",
+  data() {
+    return {
+      current: 1,
+      order: "",
+      size: "",
+      isSimple: false,
+      isRounded: true
+    };
   },
-     computed: {
-       cards(){
-         return this.$store.state.cards.rows;
-       },
-       total(){
-         return this.$store.state.cards.count;
-       }
-     },
-     watch: {
-      current: function (value) {
-        let self = this;
-        let newParams = {"limit" :  self.limit ,"offset" : self.limit  * value};
-           this.$store.dispatch('fetchCards',newParams);
-      },
-      cards(value){
-        if(value.length === 0){
-          location.reload();
-        }
-      }
+  props: {
+    limit: {
+      type: Number,
+      required: true
     },
-     methods:{
-          changeStatus(card,status){
-            card.status = status;
-            this.$store.commit('UpdateCardStatusTodatabase',card);
-          },
-          deleteCard(card){
-            this.$store.commit('DeleteCardTodatabase',card);
-          }
-     },
-     created() {
-       // dispatch like commit but for actions
-       let params = {"limit" : this.limit,"offset" : this.offset}
-       this.$store.dispatch('fetchCards',params);
-     }
-   
-   };
+    offset: {
+      type: Number,
+      required: true
+    }
+  },
+  computed: {
+    cards() {
+      return this.$store.state.cards.rows;
+    },
+    total() {
+      return this.$store.state.cards.count;
+    }
+  },
+  watch: {
+    current: function(value) {
+      let self = this;
+      let newParams = { limit: self.limit, offset: self.limit * value };
+      this.$store.dispatch("fetchCards", newParams);
+    },
+    cards(value) {
+      if (value.length === 0) {
+        location.reload();
+      }
+    }
+  },
+  methods: {
+    changeStatus(card, status) {
+      card.status = status;
+      this.$store.commit("UpdateCardStatusTodatabase", card);
+    },
+    deleteCard(card) {
+      this.$store.commit("DeleteCardTodatabase", card);
+    }
+  },
+  created() {
+    // dispatch like commit but for actions
+    let params = { limit: this.limit, offset: this.offset };
+    this.$store.dispatch("fetchCards", params);
+  }
+};
 </script>
 <style>
-   .buttonSpace{
-   margin-left:10px;
-   }
-   .cardSpace{
-     margin: 10px !important;
-   }
-   .deleteButton{
-     margin: 10px;
-   }
+.buttonSpace {
+  margin-left: 10px;
+}
+.cardSpace {
+  margin: 10px !important;
+}
+.deleteButton {
+  margin: 10px;
+}
 </style>

@@ -35,35 +35,34 @@
    </div>
 </template>
 <script>
-   export default {
-     name: "Create",
-     data() {
-       return {
-          title:'',
-          status: 'To do',
-          description:''
-       }
-    },
-     methods:{
-       AddToBoardComponent(){
-         
-         const  card = {
-            "title" : this.title,
-            "status" : this.status,
-            "description" : this.description
-          }
+export default {
+  name: "Create",
+  data() {
+    return {
+      title: "",
+      status: "To do",
+      description: ""
+    };
+  },
+  methods: {
+    AddToBoardComponent() {
+      const card = {
+        title: this.title,
+        status: this.status,
+        description: this.description
+      };
 
-          this.$store.commit('AddCardTodatabase',card);
-       },
-       Clear(){
-         this.title ="";
-         this.description = "";
-       }
-     }
-   };
+      this.$store.commit("AddCardTodatabase", card);
+    },
+    Clear() {
+      this.title = "";
+      this.description = "";
+    }
+  }
+};
 </script>
 <style>
-.radio-section{
+.radio-section {
   margin-top: 30px;
   margin-bottom: 30px;
 }

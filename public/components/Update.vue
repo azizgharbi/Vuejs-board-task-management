@@ -39,55 +39,50 @@
    </div>
 </template>
 <script>
+import axios from "axios";
 
-import axios from 'axios';
+export default {
+  name: "Update",
+  data() {
+    return {
+      title: "",
+      status: "To do",
+      description: ""
+    };
+  },
+  computed: {
+    card() {
+      return this.$store.state.card;
+    }
+  },
+  methods: {
+    updateCard() {
+      const card = {
+        id: this.$route.params.id,
+        title: this.title,
+        status: this.status,
+        description: this.description
+      };
 
-   export default {
-     name: "Update",
-     data() {
-       return {
-          title:'',
-          status: 'To do',
-          description:''
-       }
+      this.$store.commit("UpdateCardTodatabase", card);
     },
-     computed: {
-       card(){
-         return this.$store.state.card;
-       }
-     },
-     methods:{
-        updateCard(){
 
-             const  card = {
-                "id" : this.$route.params.id,
-                "title" : this.title,
-                "status" : this.status,
-                "description" : this.description
-            }
-
-            this.$store.commit('UpdateCardTodatabase',card);
-          },
-
-        Clear(){
-         this.title ="";
-         this.description = "";
-       }
-    },
-     created() {  
-
-       axios.get('/api/card/'+ this.$route.params.id)
-          .then( card => {
-            this.title = card.data[0].title;
-            this.status = card.data[0].status;
-            this.description = card.data[0].description;
-          });
-
-     }
-   };
+    Clear() {
+      this.title = "";
+      this.description = "";
+    }
+  },
+  created() {
+    axios.get("/api/card/" + this.$route.params.id).then(card => {
+      this.title = card.data[0].title;
+      this.status = card.data[0].status;
+      this.description = card.data[0].description;
+    });
+  }
+};
 </script>
 <style>
-.radio-section{
+.radio-section {
   margin-top: 30px;
   margin-bottom: 30px;
 }

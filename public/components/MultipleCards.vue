@@ -48,47 +48,49 @@
    </div>
 </template>
 <script>
-   export default {
-     name: "MultipleCreate",
-     data() {
-       return {
-        form: [{
-            title:'',
-            status: 'To do',
-            description:''
-        }]
-       }
+export default {
+  name: "MultipleCreate",
+  data() {
+    return {
+      form: [
+        {
+          title: "",
+          status: "To do",
+          description: ""
+        }
+      ]
+    };
+  },
+  methods: {
+    addForm() {
+      this.form.push({
+        title: this.form.title,
+        status: this.form.status,
+        description: this.form.description
+      });
     },
-     methods:{
-         addForm(){
-             this.form.push({
-                title : this.form.title,
-                status : this.form.status,
-                description : this.form.description,
-             })
-         },
-         createCards(){
-             this.form.forEach(element => {
-                 let card = {
-                     title : element.title,
-                     status : element.status,
-                     description : element.description
-                 }
-                 this.$store.commit('AddCardTodatabase',card);
-             });
-         },
-         deleteForm(index){
-             this.form.splice(index,1);
-         }
-     }
-   };
+    createCards() {
+      this.form.forEach(element => {
+        let card = {
+          title: element.title,
+          status: element.status,
+          description: element.description
+        };
+        this.$store.commit("AddCardTodatabase", card);
+      });
+    },
+    deleteForm(index) {
+      this.form.splice(index, 1);
+    }
+  }
+};
 </script>
 <style>
-.radio-section .row{
+.radio-section .row {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.multipleForm{
-    margin-bottom: 30px;
+.multipleForm {
+  margin-bottom: 30px;
 }
 </style>

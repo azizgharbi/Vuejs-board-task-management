@@ -1,6 +1,8 @@
-var database = require('./../database/databse_config');
+var database = require("./../database/databse_config");
 
-const Card = database.sequelize.define('Card', {
+const Card = database.sequelize.define(
+  "Card",
+  {
     title: {
       type: database.Sequelize.STRING
     },
@@ -8,11 +10,12 @@ const Card = database.sequelize.define('Card', {
       type: database.Sequelize.TEXT
     },
     status: {
-        type: database.Sequelize.STRING
+      type: database.Sequelize.STRING
     }
   },
   {
     timestamps: false
-  });
+  }
+);
 
-  exports.Card = Card ;
+exports.Card = Card;
